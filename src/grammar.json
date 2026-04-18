@@ -536,15 +536,8 @@
       ]
     },
     "method_name": {
-      "type": "PREC_LEFT",
-      "value": 0,
-      "content": {
-        "type": "REPEAT1",
-        "content": {
-          "type": "SYMBOL",
-          "name": "identifier"
-        }
-      }
+      "type": "SYMBOL",
+      "name": "identifier"
     },
     "method_returns": {
       "type": "CHOICE",

@@ -98,8 +98,8 @@ export default grammar({
             optional(seq('=>', field('returns', $.method_returns))),
          ),
 
-      // Allow split identifiers in stress-test samples (ridlfmt e1.ridl); real code uses one token.
-      method_name: ($) => prec.left(0, repeat1($.identifier)),
+      // One lexical identifier per method name (not a run of tokens; rejects split spellings).
+      method_name: ($) => $.identifier,
 
       method_returns: ($) => choice(seq('stream', field('stream_payload', $.tuple_type)), $.tuple_type),
 
