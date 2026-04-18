@@ -12,6 +12,10 @@
         "named": true
       },
       {
+        "type": "import_declaration",
+        "named": true
+      },
+      {
         "type": "meta_declaration",
         "named": true
       },
@@ -21,6 +25,10 @@
       },
       {
         "type": "struct_declaration",
+        "named": true
+      },
+      {
+        "type": "type_alias_declaration",
         "named": true
       }
     ]
@@ -53,6 +61,10 @@
       },
       {
         "type": "map_type",
+        "named": true
+      },
+      {
+        "type": "union_type",
         "named": true
       }
     ]
@@ -241,7 +253,44 @@
             "named": true
           }
         ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "enum_variant_value",
+            "named": true
+          }
+        ]
       }
+    }
+  },
+  {
+    "type": "enum_variant_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "dotted_meta_literal",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -260,7 +309,7 @@
       },
       "http_status": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "number",
@@ -273,7 +322,7 @@
         "required": true,
         "types": [
           {
-            "type": "string",
+            "type": "error_message",
             "named": true
           }
         ]
@@ -288,6 +337,40 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "error_message",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "error_name_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -314,6 +397,110 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "import_dashed_line",
+    "named": true,
+    "fields": {
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "import_path",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "import_declaration",
+    "named": true,
+    "fields": {
+      "path": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "import_path",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "import_dashed_line",
+          "named": true
+        },
+        {
+          "type": "import_member",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "import_member",
+    "named": true,
+    "fields": {
+      "member": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "import_member_value",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "import_member_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "import_path_raw",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "import_path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "import_path_raw",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -396,7 +583,7 @@
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "meta_word",
           "named": true
         },
         {
@@ -404,6 +591,22 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "method_errors_clause",
+    "named": true,
+    "fields": {
+      "names": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "error_name_list",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -476,7 +679,18 @@
   {
     "type": "parameter_list",
     "named": true,
-    "fields": {},
+    "fields": {
+      "stream_parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameter_list",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
@@ -518,6 +732,16 @@
     "type": "service_method",
     "named": true,
     "fields": {
+      "errors": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "method_errors_clause",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -530,7 +754,7 @@
       },
       "parameters": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "parameter_list",
@@ -675,6 +899,65 @@
     }
   },
   {
+    "type": "type_alias_declaration",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_type_expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "field_meta",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "union_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array_type",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "map_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "\"",
     "named": false
   },
@@ -723,6 +1006,10 @@
     "named": false
   },
   {
+    "type": "?",
+    "named": false
+  },
+  {
     "type": "@",
     "named": false
   },
@@ -751,7 +1038,19 @@
     "named": false
   },
   {
+    "type": "errors",
+    "named": false
+  },
+  {
     "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "import",
+    "named": false
+  },
+  {
+    "type": "import_path_raw",
     "named": true
   },
   {
@@ -764,8 +1063,16 @@
     "named": false
   },
   {
+    "type": "meta_word",
+    "named": true
+  },
+  {
     "type": "number",
     "named": true
+  },
+  {
+    "type": "proxy",
+    "named": false
   },
   {
     "type": "service",
@@ -777,6 +1084,14 @@
   },
   {
     "type": "struct",
+    "named": false
+  },
+  {
+    "type": "type",
+    "named": false
+  },
+  {
+    "type": "|",
     "named": false
   }
 ]

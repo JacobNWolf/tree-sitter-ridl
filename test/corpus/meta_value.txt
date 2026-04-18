@@ -1,0 +1,34 @@
+==================
+meta value dash and empty error message
+==================
+
+webrpc = v1
+
+struct S
+  - x: string
+    + tag = -
+
+error 1 E "" HTTP 500
+
+---
+
+(source_file
+  (meta_declaration
+    (identifier)
+    (meta_value
+      (meta_word)))
+  (struct_declaration
+    (identifier)
+    (struct_field
+      (identifier)
+      (identifier)
+      (field_meta
+        (meta_path
+          (identifier))
+        (meta_value))))
+  (error_declaration
+    (number)
+    (identifier)
+    (error_message
+      (string))
+    (number)))

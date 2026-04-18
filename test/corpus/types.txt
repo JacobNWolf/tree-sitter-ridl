@@ -1,0 +1,32 @@
+==================
+nested container types
+==================
+
+struct Complex
+  - m: map<string,map<uint32,bool>>
+  - a: [][]User
+  - u: []map<string,uint32>
+
+---
+
+(source_file
+  (struct_declaration
+    (identifier)
+    (struct_field
+      (identifier)
+      (map_type
+        (identifier)
+        (map_type
+          (identifier)
+          (identifier))))
+    (struct_field
+      (identifier)
+      (array_type
+        (array_type
+          (identifier))))
+    (struct_field
+      (identifier)
+      (array_type
+        (map_type
+          (identifier)
+          (identifier))))))
