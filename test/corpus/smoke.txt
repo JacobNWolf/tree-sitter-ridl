@@ -27,76 +27,76 @@ service Example
 
 (source_file
   (meta_declaration
-    (identifier)
-    (meta_value
+    key: (identifier)
+    value: (meta_value
       (meta_word)))
   (meta_declaration
-    (identifier)
-    (meta_value
+    key: (identifier)
+    value: (meta_value
       (meta_word)))
   (meta_declaration
-    (identifier)
-    (meta_value
+    key: (identifier)
+    value: (meta_value
       (dotted_meta_literal)))
   (enum_declaration
-    (identifier)
-    (identifier)
+    name: (identifier)
+    underlying_type: (identifier)
     (enum_variant
-      (identifier))
+      name: (identifier))
     (enum_variant
-      (identifier)))
+      name: (identifier)))
   (struct_declaration
-    (identifier)
+    name: (identifier)
     (struct_field
-      (identifier)
-      (identifier)
+      name: (identifier)
+      type: (identifier)
       (field_meta
-        (meta_path
+        key: (meta_path
           (identifier))
-        (meta_value
+        value: (meta_value
           (meta_word)))))
   (error_declaration
-    (number)
-    (identifier)
-    (error_message
+    code: (number)
+    name: (identifier)
+    message: (error_message
       (string))
-    (number))
+    http_status: (number))
   (service_declaration
-    (identifier)
+    name: (identifier)
     (annotation_line
       (annotation_clause
-        (identifier)))
+        tag: (identifier)))
     (annotation_line
       (annotation_clause
-        (annotation_word_list
+        name: (annotation_word_list
           (identifier))
-        (annotation_value
+        value: (annotation_value
           (annotation_value_words
             (identifier)
             (identifier)
             (identifier)))))
     (service_method
-      (method_name
+      name: (method_name
         (identifier))
-      (parameter_list))
+      parameters: (parameter_list))
     (service_method
-      (method_name
+      name: (method_name
         (identifier))
-      (parameter_list
+      parameters: (parameter_list
         (parameter
-          (identifier)
-          (identifier)))
-      (method_returns
+          name: (identifier)
+          type: (identifier)))
+      returns: (method_returns
         (tuple_type
           (tuple_field
-            (identifier)
-            (identifier)))))
+            name: (identifier)
+            type: (identifier)))))
     (service_method
-      (method_name
+      name: (method_name
         (identifier))
-      (parameter_list)
-      (method_returns
-        (tuple_type
+      parameters: (parameter_list)
+      returns: (method_returns
+        stream_payload: (tuple_type
           (tuple_field
-            (identifier)
-            (identifier)))))))
+            name: (identifier)
+            type: (identifier)))))))

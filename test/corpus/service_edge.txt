@@ -10,23 +10,23 @@ service Edge
 
 (source_file
   (service_declaration
-    (identifier)
+    name: (identifier)
     (service_method
-      (method_name
+      name: (method_name
         (identifier))
-      (parameter_list
+      parameters: (parameter_list
         (parameter
-          (identifier)))
-      (method_returns
+          type: (identifier)))
+      returns: (method_returns
         (tuple_type
           (tuple_field
-            (identifier)))))
+            type: (identifier)))))
     (service_method
-      (method_name
+      name: (method_name
         (identifier))
-      (parameter_list)
-      (method_returns
-        (tuple_type
+      parameters: (parameter_list)
+      returns: (method_returns
+        stream_payload: (tuple_type
           (tuple_field
-            (identifier)
-            (identifier)))))))
+            name: (identifier)
+            type: (identifier)))))))
