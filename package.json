@@ -8,6 +8,9 @@
       "url": "git+https://github.com/jacobnwolf/tree-sitter-ridl.git"
    },
    "license": "MIT",
+   "engines": {
+      "node": ">=18"
+   },
    "author": {
       "name": "Jacob Wolf",
       "email": "jacob@jacobwolf.dev",
@@ -53,9 +56,11 @@
    },
    "scripts": {
       "install": "node-gyp-build",
+      "generate": "tree-sitter generate",
       "prestart": "tree-sitter build --wasm",
       "start": "tree-sitter playground",
-      "test": "node --test bindings/node/*_test.js",
+      "test": "tree-sitter test",
+      "test:node": "node --test bindings/node/*_test.js",
       "format": "biome format --write . --no-errors-on-unmatched",
       "lint": "biome lint --write . --no-errors-on-unmatched",
       "prepare": "husky",

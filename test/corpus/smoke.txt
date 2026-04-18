@@ -1,0 +1,13 @@
+==================
+minimal meta
+==================
+
+webrpc = v1
+
+---
+
+(source_file
+  (meta_declaration
+    (identifier)
+    (meta_value
+      (identifier))))
