@@ -1,0 +1,21 @@
+==================
+error without optional HTTP status
+==================
+
+error 404 NotFound "not found"
+
+error 2 PlainMessage word
+
+---
+
+(source_file
+  (error_declaration
+    (number)
+    (identifier)
+    (error_message
+      (string)))
+  (error_declaration
+    (number)
+    (identifier)
+    (error_message
+      (identifier))))

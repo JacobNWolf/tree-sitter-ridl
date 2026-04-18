@@ -29,11 +29,11 @@ service Example
   (meta_declaration
     (identifier)
     (meta_value
-      (identifier)))
+      (meta_word)))
   (meta_declaration
     (identifier)
     (meta_value
-      (identifier)))
+      (meta_word)))
   (meta_declaration
     (identifier)
     (meta_value
@@ -54,11 +54,12 @@ service Example
         (meta_path
           (identifier))
         (meta_value
-          (identifier)))))
+          (meta_word)))))
   (error_declaration
     (number)
     (identifier)
-    (string)
+    (error_message
+      (string))
     (number))
   (service_declaration
     (identifier)

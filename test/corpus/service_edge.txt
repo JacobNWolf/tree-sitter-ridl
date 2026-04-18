@@ -1,0 +1,32 @@
+==================
+bare type parameter and stream return
+==================
+
+service Edge
+  - Wrap(User) => (User)
+  - Sub() => stream (e: string)
+
+---
+
+(source_file
+  (service_declaration
+    (identifier)
+    (service_method
+      (method_name
+        (identifier))
+      (parameter_list
+        (parameter
+          (identifier)))
+      (method_returns
+        (tuple_type
+          (tuple_field
+            (identifier)))))
+    (service_method
+      (method_name
+        (identifier))
+      (parameter_list)
+      (method_returns
+        (tuple_type
+          (tuple_field
+            (identifier)
+            (identifier)))))))

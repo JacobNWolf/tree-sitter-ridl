@@ -1,0 +1,132 @@
+==================
+webrpc parity snapshot
+==================
+
+webrpc = v1
+
+import
+  - ./lib/a.ridl
+
+import b.ridl
+  - T1
+  - T2
+
+type UserID: uint64
+  + json = id
+
+struct Row
+  - opt?: string
+
+enum Code: int32
+  - OK = 0
+  - FAIL = 1
+
+error 404 N not_found HTTP 404
+
+service API
+  - proxy Cache
+  - F(x: A | B) => (y: string)
+  - G() => stream (e: string)
+  - H(stream (req: string))
+  - K(a?: string, b: int) errors Err1 | Err2
+
+---
+
+(source_file
+  (meta_declaration
+    (identifier)
+    (meta_value
+      (meta_word)))
+  (import_declaration
+    (import_dashed_line
+      (import_path
+        (import_path_raw))))
+  (import_declaration
+    (import_path
+      (import_path_raw))
+    (import_member
+      (import_member_value
+        (import_path_raw)))
+    (import_member
+      (import_member_value
+        (import_path_raw))))
+  (type_alias_declaration
+    (identifier)
+    (identifier)
+    (field_meta
+      (meta_path
+        (identifier))
+      (meta_value
+        (meta_word))))
+  (struct_declaration
+    (identifier)
+    (struct_field
+      (identifier)
+      (identifier)))
+  (enum_declaration
+    (identifier)
+    (identifier)
+    (enum_variant
+      (identifier)
+      (enum_variant_value
+        (number)))
+    (enum_variant
+      (identifier)
+      (enum_variant_value
+        (number))))
+  (error_declaration
+    (number)
+    (identifier)
+    (error_message
+      (identifier))
+    (number))
+  (service_declaration
+    (identifier)
+    (service_method
+      (method_name
+        (identifier)))
+    (service_method
+      (method_name
+        (identifier))
+      (parameter_list
+        (parameter
+          (identifier)
+          (union_type
+            (identifier)
+            (identifier))))
+      (method_returns
+        (tuple_type
+          (tuple_field
+            (identifier)
+            (identifier)))))
+    (service_method
+      (method_name
+        (identifier))
+      (parameter_list)
+      (method_returns
+        (tuple_type
+          (tuple_field
+            (identifier)
+            (identifier)))))
+    (service_method
+      (method_name
+        (identifier))
+      (parameter_list
+        (parameter_list
+          (parameter
+            (identifier)
+            (identifier)))))
+    (service_method
+      (method_name
+        (identifier))
+      (parameter_list
+        (parameter
+          (identifier)
+          (identifier))
+        (parameter
+          (identifier)
+          (identifier)))
+      (method_errors_clause
+        (error_name_list
+          (identifier)
+          (identifier))))))
