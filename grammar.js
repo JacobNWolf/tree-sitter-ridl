@@ -131,7 +131,7 @@ export default grammar({
 
       number: (_$) => /\d+/,
 
-      string: (_$) => seq('"', field('content', token.immediate(/[^"\\]*/)), '"'),
+      string: (_$) => seq('"', optional(field('content', token.immediate(/[^"\\]*/))), '"'),
 
       line_comment: (_$) => token(/#[^\n]*/),
    },
