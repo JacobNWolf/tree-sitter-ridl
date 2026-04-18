@@ -1,0 +1,70 @@
+{
+   "name": "tree-sitter-ridl",
+   "version": "0.1.0",
+   "description": "RIDL grammar for tree-sitter",
+   "type": "module",
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jacobnwolf/tree-sitter-ridl.git"
+   },
+   "license": "MIT",
+   "author": {
+      "name": "Jacob Wolf",
+      "email": "jacob@jacobwolf.dev",
+      "url": "https://github.com/JacobNWolf"
+   },
+   "main": "bindings/node",
+   "types": "bindings/node",
+   "keywords": [
+      "incremental",
+      "parsing",
+      "tree-sitter",
+      "ridl"
+   ],
+   "files": [
+      "grammar.js",
+      "tree-sitter.json",
+      "binding.gyp",
+      "prebuilds/**",
+      "bindings/node/*",
+      "queries/*",
+      "src/**",
+      "*.wasm"
+   ],
+   "dependencies": {
+      "node-addon-api": "^8.5.0",
+      "node-gyp-build": "^4.8.4"
+   },
+   "devDependencies": {
+      "@biomejs/biome": "2.4.12",
+      "husky": "^9.1.7",
+      "lint-staged": "^16.4.0",
+      "prebuildify": "^6.0.1",
+      "tree-sitter": "^0.25.0",
+      "tree-sitter-cli": "^0.26.8"
+   },
+   "peerDependencies": {
+      "tree-sitter": "^0.25.0"
+   },
+   "peerDependenciesMeta": {
+      "tree-sitter": {
+         "optional": true
+      }
+   },
+   "scripts": {
+      "install": "node-gyp-build",
+      "prestart": "tree-sitter build --wasm",
+      "start": "tree-sitter playground",
+      "test": "node --test bindings/node/*_test.js",
+      "format": "biome format --write . --no-errors-on-unmatched",
+      "lint": "biome lint --write . --no-errors-on-unmatched",
+      "prepare": "husky",
+      "lint-staged": "lint-staged"
+   },
+   "lint-staged": {
+      "*.{js,ts,json,md}": [
+         "pnpm lint",
+         "pnpm format"
+      ]
+   }
+}
