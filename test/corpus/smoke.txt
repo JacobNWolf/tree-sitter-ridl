@@ -1,0 +1,101 @@
+==================
+ridl surface
+==================
+
+webrpc = v1
+name = demo
+version = v0.1.0
+
+enum Role: uint32
+  - USER
+  - ADMIN
+
+struct User
+  - id: uint64
+    + json = id
+
+error 404 NotFound "not found" HTTP 404
+
+service Example
+  @ public
+  @ scope : api read write
+  - Ping()
+  - Echo(msg: string) => (out: string)
+  - Events() => stream (item: string)
+
+---
+
+(source_file
+  (meta_declaration
+    (identifier)
+    (meta_value
+      (identifier)))
+  (meta_declaration
+    (identifier)
+    (meta_value
+      (identifier)))
+  (meta_declaration
+    (identifier)
+    (meta_value
+      (dotted_meta_literal)))
+  (enum_declaration
+    (identifier)
+    (identifier)
+    (enum_variant
+      (identifier))
+    (enum_variant
+      (identifier)))
+  (struct_declaration
+    (identifier)
+    (struct_field
+      (identifier)
+      (identifier)
+      (field_meta
+        (meta_path
+          (identifier))
+        (meta_value
+          (identifier)))))
+  (error_declaration
+    (number)
+    (identifier)
+    (string)
+    (number))
+  (service_declaration
+    (identifier)
+    (annotation_line
+      (annotation_clause
+        (identifier)))
+    (annotation_line
+      (annotation_clause
+        (annotation_word_list
+          (identifier))
+        (annotation_value
+          (annotation_value_words
+            (identifier)
+            (identifier)
+            (identifier)))))
+    (service_method
+      (method_name
+        (identifier))
+      (parameter_list))
+    (service_method
+      (method_name
+        (identifier))
+      (parameter_list
+        (parameter
+          (identifier)
+          (identifier)))
+      (method_returns
+        (tuple_type
+          (tuple_field
+            (identifier)
+            (identifier)))))
+    (service_method
+      (method_name
+        (identifier))
+      (parameter_list)
+      (method_returns
+        (tuple_type
+          (tuple_field
+            (identifier)
+            (identifier)))))))
